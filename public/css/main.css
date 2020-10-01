@@ -1,0 +1,324 @@
+*{
+    font-family: 'M PLUS 1p', sans-serif;
+}
+td a{
+    display:block;
+}
+body{
+    overflow-x:hidden;
+}
+header{
+    height:7vh;
+    text-align:center;
+    border-bottom: 1px solid #000;
+    background: rgb(48, 39, 100);
+    font-size: 1.5rem;
+    line-height: 4rem;
+    color: white;
+    font-family: 'Secular One', sans-serif;
+}
+main{
+    min-height:86vh;
+
+}
+main h2{
+    text-align:center;
+    font-size: 2rem;
+    padding-top: 5rem;
+    padding-bottom: 3rem;
+}
+table{
+    margin: 0 auto;
+    width:80%;
+    text-align:center;
+}
+th{
+    text-align:center;
+    padding:1rem;
+    font-size: 1.25rem;
+    background: rgb(45, 40, 117);
+    color: white;
+}
+tr{
+    cursor:pointer;
+    background: rgb(255, 255, 255);
+    font-size: 1.125rem;
+    line-height: 3rem;
+    border: 1px solid rgb(134, 134, 134);
+}
+tr:hover{
+    background: rgb(180, 180, 180);
+}
+#loginForm{
+    width:80%;
+    margin: 0 auto;
+}
+#loginForm h2{
+    padding-top: 5rem;
+    padding-bottom: 2rem;
+    font-size: 2rem;
+}
+#loginForm section{
+    width:50%;
+    margin: 0 auto;
+    border: 1px solid #000;
+    border-radius: 10px 10px/10px 10px;
+    
+}
+#loginForm ul{
+    padding: 4rem;
+    padding-bottom:2rem;
+
+}
+#loginForm li{
+    padding-bottom:1.5rem;
+}
+#loginForm li p:first-child{
+    line-height: 2.5rem;
+}
+#loginForm li p:last-child{
+    width:100%;
+    font-size: 1.25rem;
+    border: 1px solid #000;
+    border-radius: 10px 10px/10px 10px;
+}
+#loginId,
+#loginPw{
+    width:100%;
+    padding: 1rem;
+}
+#loginForm li:last-child{
+    margin-top:3rem;
+
+}
+.button{
+    width:100%;
+    font-size: 1.25rem;
+    line-height: 4rem;
+
+    color: white;
+    border: 1px solid rgb(48, 39, 100);
+    border-radius: 10px 10px/10px 10px;
+    background: rgb(48, 39, 100);
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 5rem;
+}
+.loginsession{
+    display:flex;
+    position:absolute;
+    right:3rem;
+    top:0;
+}
+.loginsession li{
+    font-size: 1rem;
+    padding-left:1rem;
+    padding-right: 1rem;
+}
+.loginsession a{
+    padding: 0.5rem;
+    background: rgba(255, 255, 255, 0.342);
+
+    border-radius: 10px 10px/10px 10px;
+}
+#newReport{
+    position:absolute;
+    top:1rem;
+    padding:0.5rem;
+    left: 6rem;
+    color: white;
+    background: rgba(255, 255, 255, 0.342);
+
+    border-radius: 10px 10px/10px 10px;
+}
+.editDelete{
+    display:flex;
+    flex-wrap:wrap;
+    width:58.5%;
+    margin: 0 auto;
+    padding: 5rem;
+}
+.editDelete li{
+    font-size: 1.5rem;
+    background: rgb(48, 39, 100);
+    color: white;
+    line-height: 5rem;
+    text-align:center;
+}
+.aboutPage{
+    width:50%;
+    border-bottom:1px solid white;
+}
+.editDelete li:hover{
+    background: rgb(138, 127, 202);
+}
+.editDelete li:first-child{
+    border-right: 1px solid rgb(255, 255, 255);
+}
+.editDelete li a{
+    display:block;
+}
+.detailTable{
+    width:50%;
+}
+.detailTable td:first-child{
+    border-right:1px solid black;
+    background: rgb(48, 39, 100);
+    color: white;
+}
+.detailTable .trArea{
+    background-color: rgba(255, 255, 255, 0);
+    height:15vh;
+    text-align:left;
+    padding: 1rem;
+    padding-top: 0rem;
+}
+.addForm{
+    width:50%;
+    margin: 0 auto;
+}
+
+.addForm input,select,textarea{
+    cursor:pointer;
+    padding: 1rem;
+    width:100%;
+    border: 1px solid #000;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.addForm input:hover,select:hover,textarea:hover{
+    background: rgb(200, 200, 200);
+}
+
+.addForm button{
+    width:100%;
+    font-size: 1.25rem;
+    line-height: 4rem;
+
+    color: white;
+    border: 1px solid rgb(48, 39, 100);
+    border-radius: 10px 10px/10px 10px;
+    background: rgb(48, 39, 100);
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+}
+#back{
+    margin-bottom: 10rem;
+}
+#back a{
+    display:block;
+}
+.topPage{
+    width:100%;
+}
+.selectcursor:after{
+    content:"▼";
+    position:absolute;
+    left:73%;
+    top:62.6%;
+}
+.editcursor:after{
+    content:"▼";
+    position:absolute;
+    left:73%;
+    top:64.2%;
+}
+.deleteprint{
+    text-align:center;
+    margin-bottom: 3rem;
+}
+#deleteform{
+    margin-top: 3rem;
+}
+#flashMsg{
+    text-align:center;
+}
+#flashMsg p{
+    padding: 2rem;
+    margin: 2rem auto;
+    width:50%;
+    border: 1px solid #000;
+
+}
+footer{
+    height:7vh;
+    line-height: 4rem;
+    background: rgb(48, 39, 100);
+    color: white;
+    text-align: center;
+}
+#pagemain{
+    min-height:30vh;
+}
+#pageNation{
+    width:100%;
+    margin-top:2rem;   
+}
+#pageNation ul{
+    justify-content:center;
+    margin: 0 auto;
+
+    display:flex;
+}
+#pageNation li{
+    font-size: 1.25rem;
+    line-height: 3rem;
+    width:3rem;
+    text-align:center;
+    margin: 0.5rem;
+    border: 1px solid #000;
+    background: rgb(255, 255, 255);
+}
+#pageNation li:hover{
+    background: rgb(190, 190, 190);
+
+}
+#pageNation a{
+    display:block;
+}
+
+.errorMsg{
+    color: red;
+}
+#selected{
+    background: rgb(46, 46, 46);
+    color: white;
+}
+#searchForm{
+    width:100%;
+    justify-content:center;
+    display:flex;
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+}
+#searchForm p{
+    padding: 1rem;
+}
+#searchForm input{
+    border-bottom: 1px solid #000;
+}
+#searchForm button{
+    margin-left: 2rem;
+    border: 1px solid #000;
+    padding: 1rem;
+    background: rgb(255, 255, 255);
+}
+#searchForm button:hover{
+    margin-left: 2rem;
+    background: rgb(143, 143, 143);
+    border: 1px solid #000;
+    padding: 1rem;
+}
+#resultMsg{
+    width:100%;
+    text-align:center;
+    line-height: 3rem;
+    margin: 0 auto;
+
+}
+#formList{
+    width:100%;
+    justify-content: center;
+    display:flex;
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/ph34/sharereports/public/css/destyle.css">
+    <link rel="stylesheet" href="/ph34/sharereports/public/css/main.css 
+" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@500&family=Secular+One&display=swap"
+        rel="stylesheet">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <h1><a href="/ph34/sharereports/public/reports/showList">ShareReport</a></h1>
+        <ul class="loginsession">
+            <li>ユーザー:{{login}}</li>
+            <li><a href="/ph34/sharereports/public/logout">ログアウト</a></li>
+        </ul>
+    </header>
+    <main>
+        <article>
+            <h2>レポート詳細内容</h2>
+            {% if flashMsg %}
+            <section id="flashMsg">
+                <p>{{flashMsg}}</p>
+            </section>
+            {% endif %}
+
+            <section>
+                <table class="detailTable">
+                    <tr>
+                        <td>作業ID</td>
+                        <td>{{detail.id}}</td>
+                    </tr>
+                    <tr>
+                        <td>作業日</td>
+                        <td>{{detail.rp_date}}</td>
+                    </tr>
+                    <tr>
+                        <td>作業開始時間</td>
+                        <td>{{detail.rp_time_from[0:5]}}</td>
+                    </tr>
+                    <tr>
+                        <td>作業終了時間</td>
+                        <td>{{detail.rp_time_to[0:5]}}</td>
+                    </tr>
+                    <tr>
+                        <td>登録日時</td>
+                        <td>{{detail.rp_created_at}}</td>
+                    </tr>
+                    <tr>
+                        <td>作業情報</td>
+                        <td>{{detail.rc_name}}</td>
+                    </tr>
+                    <tr>
+                        <td>報告者名</td>
+                        <td>{{detail.us_name}}/{{detail.us_mail}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">作業内容</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="trArea">
+                            {{detail.rp_content | nl2br}}
+                        </td>
+                    </tr>
+
+                </table>
+                <ul class="editDelete">
+                    <li class="aboutPage"><a href="/ph34/sharereports/public/reports/prepareEdit/{{rpId}}">編集</a>
+                    </li>
+                    <li class="aboutPage"> <a href="/ph34/sharereports/public/reports/confirmDelete/{{rpId}}">削除</a>
+                    </li>
+                    <li class="topPage"><a href="/ph34/sharereports/public/reports/showList">TOPへ戻る</a></li>
+                </ul>
+
+            </section>
+            <button id="newReport"><a href="/ph34/sharereports/public/reports/goAdd">新規登録</a></button>
+        </article>
+    </main>
+    <footer>
+        <h2>@2020.ShareReport</h2>
+    </footer>
+</body>
+
+</html>

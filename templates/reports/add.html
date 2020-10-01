@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="widli=device-widli, initial-scale=1.0">
+    <link rel="stylesheet" href="/ph34/sharereports/public/css/destyle.css">
+    <link rel="stylesheet" href="/ph34/sharereports/public/css/main.css 
+" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@500&family=Secular+One&display=swap"
+        rel="stylesheet">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <h1><a href="/ph34/sharereports/public/reports/showList">ShareReport</a></h1>
+        <ul class="loginsession">
+            <li>ユーザー:{{login}}</li>
+            <li><a href="/ph34/sharereports/public/logout">ログアウト</a></li>
+        </ul>
+        {% if validationMsgs %}
+        <section id="errorMsg">
+            <p>以下のメッセージをご確認ください。</p>
+
+        </section>
+        {% endif %}
+    </header>
+    <main>
+        <article class="addForm">
+            <h2>レポート新規登録</h2>
+
+            <section>
+                <form action="/ph34/sharereports/public/reports/add" method="post">
+                    <ul>
+                        <li>作業日</li>
+                        <li><input type="date" id="addRpDate" name="addRpDate" min="1900-01-01" max="2100-12-31"
+                                value="{{date}}" required></li>
+                        <li>作業開始時間</li>
+                        <li><input type="time" id="addRpTimeFrom" name="addRpTimeFrom" value="{{report.rp_time_from}}"
+                                required></li>
+                        <li>作業終了時間
+                            {% for msg in validationMsgs %}
+                            <span class="errorMsg">　{{msg}}</span>
+                            {% endfor %}</li>
+                        <li><input type="time" id="addRpTimeTo" name="addRpTimeTo" value="{{report.rp_time_to}}"
+                                required></li>
+                        <li class="selectcursor">作業種類</li>
+                        <li><select name="addRpCate" id="addRpCate" required>
+                                {% for val in rp %}
+                                {% if val.cate_id == cateId %}
+                                <option value="{{val.cate_id}}" selected>{{val.cate_id}}　{{val.rc_name}}</option>
+                                {% else %}
+                                <option value="{{val.cate_id}}">{{val.cate_id}}　{{val.rc_name}}</option>
+                                {% endif %}
+                                {% endfor %}
+                            </select></li>
+                        <li>作業内容</li>
+                        <li><textarea name="addRpCon" id="addRpCon" cols="30" rows="10"
+                                required>{{report.rp_content}}</textarea></li>
+                    </ul>
+                    <button type="submit">登録</button>
+                    <button id="back"><a href="/ph34/sharereports/public/reports/showList">TOPへ戻る</a></button>
+                </form>
+            </section>
+        </article>
+    </main>
+    <footer>
+        <h2>@2020.ShareReport</h2>
+    </footer>
+</body>
+
+</html>

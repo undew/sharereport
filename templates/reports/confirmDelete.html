@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="widli=device-widli, initial-scale=1.0">
+    <link rel="stylesheet" href="/ph34/sharereports/public/css/destyle.css">
+    <link rel="stylesheet" href="/ph34/sharereports/public/css/main.css 
+" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@500&family=Secular+One&display=swap"
+        rel="stylesheet">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <h1><a href="/ph34/sharereports/public/reports/showList">ShareReport</a></h1>
+        <ul class="loginsession">
+            <li>ユーザー:{{login}}</li>
+            <li><a href="/ph34/sharereports/public/logout">ログアウト</a></li>
+        </ul>
+    </header>
+    <main>
+        <article class="addForm">
+            <h2>レポート詳細内容</h2>
+            <section>
+                <h3 class="deleteprint">このレポートを削除します。よろしければ削除ボタンを押してください。</h3>
+                <form action="/ph34/sharereports/public/reports/delete" method="post">
+                    <section>
+                        <table class="detailTable">
+                            <tr>
+                                <td>作業ID</td>
+                                <td>{{report.id}}</td>
+                            </tr>
+                            <tr>
+                                <td>作業日</td>
+                                <td>{{report.rp_date}}</td>
+                            </tr>
+                            <tr>
+                                <td>作業開始時間</td>
+                                <td>{{report.rp_time_from}}</td>
+                            </tr>
+                            <tr>
+                                <td>作業終了時間</td>
+                                <td>{{report.rp_time_to}}</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">作業内容</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="trArea">{{report.rp_content}}</td>
+                            </tr>
+
+                        </table>
+                        <input type="hidden" id="deleteRpId" name="deleteRpId" value="{{report.id}}">
+                        <button type="submit" id="deleteform">削除</button>
+                        <button id="back"><a
+                                href="/ph34/sharereports/public/reports/detail/{{report.Id}}">一つ前に戻る</button>
+                </form>
+            </section>
+        </article>
+        <button id="newReport"><a href="/ph34/sharereports/public/reports/goAdd">新規登録</a></button>
+    </main>
+    <footer>
+        <h2>@2020.ShareReport</h2>
+    </footer>
+</body>
+
+</html>

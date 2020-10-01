@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="" />
+    <title>ログイン | ShareReport Sample</title>
+    <link rel="stylesheet" href="/ph34/sharereports/public/css/destyle.css">
+    <link rel="stylesheet" href="/ph34/sharereports/public/css/main.css 
+" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@500&family=Secular+One&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1>Share Report</h1>
+        {% if validationMsgs %}
+        {% endif %}
+    </header>
+    <main>
+        <article id="loginForm">
+            <h2>ログイン</h2>
+
+            </section>
+            <section>
+                <form action="/ph34/sharereports/public/login" method="post">
+                    <ul>
+                        <li>
+                            <p>メールアドレス　<span class="errorMsg">{{validationMsgs.id}}</span></p>
+                            <p><input type="email" id="loginId" name="loginId" value="{{loginId}}" required /></p>
+                        </li>
+                        <li>
+                            <p>パスワード　<span class="errorMsg">{{validationMsgs.pass}}</span></p>
+                            <p><input type="password" id="loginPw" name="loginPw" required /></p>
+                        </li>
+                        <li><button type="submit" class="button">ログイン</button></li>
+                    </ul>
+
+                </form>
+            </section>
+        </article>
+    </main>
+    <footer>
+        <h2>@2020.ShareReport</h2>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/ph34/sharereports/public/css/destyle.css">
+    <link rel="stylesheet" href="/ph34/sharereports/public/css/main.css 
+" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@500&family=Secular+One&display=swap"
+        rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <h1><a href="/ph34/sharereports/public/reports/showList">ShareReport</a></h1>
+        <ul class="loginsession">
+            <li>ユーザー:{{login}}</li>
+            <li><a href="/ph34/sharereports/public/logout">ログアウト</a></li>
+        </ul>
+
+    </header>
+    <main>
+        <article>
+            <h2>レポートリスト</h2>
+            <div id="formList">
+                <form action="/ph34/sharereports/public/reports/showList/goUser" method="post">
+                    <div id="searchForm">
+                        <p>報告者名検索：<input type="text" name="username" required /></p>
+                        <button type="submit">検索</button>
+                    </div>
+                </form>
+                <form action="/ph34/sharereports/public/reports/showList/goDate" method="post">
+                    <div id="searchForm">
+                        <p>日付検索：<input type="date" min="1900-01-01" max="2100-12-31" name="dateparams" required /></p>
+                        <button type="submit">検索</button>
+                        <button><a href="/ph34/sharereports/public/reports/showList">全件表示</a></button>
+                    </div>
+                </form>
+            </div>
+            {% if resultMsg %}
+            <p id="resultMsg">{{resultMsg}}</p>
+            {% endif %}
+            <section id="pagemain">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>作業ID</th>
+                            <th>作業日</th>
+                            <th>作業内容</th>
+                            <th>報告者名</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for rpId,repo in ReportList %}
+                        {% set count = count + 1 %}
+                        <tr class="reportlist" id="{{count}}">
+                            <td><a href="/ph34/sharereports/public/reports/detail/{{rpId}}">{{rpId}}</a></td>
+                            <td><a href="/ph34/sharereports/public/reports/detail/{{rpId}}">{{repo.rp_date}}</a></td>
+                            <td><a href="/ph34/sharereports/public/reports/detail/{{rpId}}">{{repo.rp_content|length > 10 ? repo.rp_content|slice(0,10) ~ '...' : repo.rp_content}}
+                                </a></td>
+                            <td><a href="/ph34/sharereports/public/reports/detail/{{rpId}}">{{repo.rc_name}}</a></td>
+                        </tr>
+                        </a>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <button id="newReport"><a href="/ph34/sharereports/public/reports/goAdd">新規登録</a></button>
+            </section>
+            <section id="pageNation">
+                <ul>
+                    {% for rpId in pageList %}
+                    {% if rpId == pageId + 1 %}
+                    <li><a href="/ph34/sharereports/public/reports/showList/{{rpId}}" id="selected">{{rpId}}</a></li>
+                    {% else %}
+                    <li><a href="/ph34/sharereports/public/reports/showList/{{rpId}}">{{rpId}}</a></li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+            </section>
+            {% if flashMsg %}
+            <section id="flashMsg">
+                <p>{{flashMsg}}</p>
+            </section>
+            {% endif %}
+        </article>
+    </main>
+    <footer>
+        <h2>@2020.ShareReport</h2>
+    </footer>
+    <script src="/ph34/sharereports/public/js/app.js"></script>
+</body>
+
+</html>
